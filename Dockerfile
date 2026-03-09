@@ -11,7 +11,7 @@ ENV OLLAMA_MODELS=/root/.ollama
 RUN bash -lc "\
   ollama serve & \
   for i in {1..60}; do sleep 1; if curl -sf http://127.0.0.1:11434/api/version >/dev/null; then break; fi; done; \
-  ollama pull deepseek-r1:8b-llama-distill-q4_K_M; \
+  ollama pull deepseek-r1:32b-qwen-distill-q8_0; \
   pkill -9 ollama || true \
 "
 
